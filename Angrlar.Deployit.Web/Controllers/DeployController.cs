@@ -3,12 +3,13 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 using Angrlar.Deployit.Web.Common;
+using Angrlar.Deployit.Web.Hubs;
 using Angrlar.Deployit.Web.Models;
 using Microsoft.VisualBasic.FileIO;
 
 namespace Angrlar.Deployit.Web.Controllers
 {
-    public class DeployController : ApiHubController
+    public class DeployController : ApiHubController<BroadcastHub>
     {
         public HttpResponseMessage Post(DeployRequest request)
         {
@@ -79,7 +80,7 @@ namespace Angrlar.Deployit.Web.Controllers
         {
             var text = string.Format(message, args);
 
-            //Broadcast(text);
+            Broadcast(text);
             DocSession.Store(new DeploymentLog
             {
                 CreatedBy = User.Identity.Name,

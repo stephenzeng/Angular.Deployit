@@ -1,29 +1,16 @@
-﻿using System.Web.Http;
-using System.Web.Http.Controllers;
-using Raven.Client;
+﻿using System;
+using Microsoft.AspNet.SignalR;
 
 namespace Angrlar.Deployit.Web.Controllers
 {
-    public abstract class ApiHubController : ApiController
+    public abstract class ApiHubController<T> : ApiControllerBase where T : Hub
     {
-        protected IDocumentSession DocSession { get; private set; }
+        private static readonly Lazy<IHubContext> Lazy = new Lazy<IHubContext>(() => GlobalHost.ConnectionManager.GetHubContext<T>());
+        protected IHubContext HubContext { get { return Lazy.Value; } }
 
-        protected override void Initialize(HttpControllerContext controllerContext)
+        protected void Broadcast(string message)
         {
-            base.Initialize(controllerContext);
-            if (DocSession == null) DocSession = WebApiApplication.DocumentStore.OpenSession();
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-            if (DocSession != null)
-            {
-                using (DocSession)
-                {
-                    DocSession.SaveChanges();
-                }
-            }
+            HubContext.Clients.All.broadcast(message);
         }
     }
 }
