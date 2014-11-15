@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="utf-8" />
+    <title>DEPLOYIT</title>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-fixed-top site-header">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand">
+                    <span class="glyphicon glyphicon-time"></span>
+                    DEPLOYIT
+                </span>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-right">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Settings", "Index", "Settings")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="contentContainer">
+        <div class="container body-content" style="margin-top: 15px;">
+            <div style="margin-bottom: 15px;">
+                <div id="divAlert" class="alert alert-danger hidden">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <span id="alertText">error</span>
+                </div>
+                <div id="divInfo" class="alert alert-info hidden">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <span id="alertText">info</span>
+                </div>
+            </div>
+
+            @RenderBody()
+        </div>
+    </div>
+    <footer></footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/signalr")
+    <script src="~/signalr/hubs"></script>
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/ngapp")
+    
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
