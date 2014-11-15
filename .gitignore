@@ -3,3 +3,9 @@
 ################################################################################
 
 /Angrlar.Deployit.Web/Angrlar.Deployit.Web.v12.suo
+/Angrlar.Deployit.Web/bin
+/Angrlar.Deployit.Web/obj/Debug
+/packages
+!/packages/repositories.config
+
+/*.suo

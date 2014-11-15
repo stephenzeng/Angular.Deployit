@@ -4,7 +4,7 @@ using Raven.Client;
 
 namespace Angrlar.Deployit.Web.Controllers
 {
-    public abstract class ApiControllerBase : ApiController
+    public abstract class ApiHubController : ApiController
     {
         protected IDocumentSession DocSession { get; private set; }
 

@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace Angrlar.Deployit.Web.Controllers
 {
-    public class ProjectsController : ApiControllerBase
+    public class ProjectsController : ApiHubController
     {
         public DateTime Get()
         {
