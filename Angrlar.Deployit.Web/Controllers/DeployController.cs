@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using Angrlar.Deployit.Web.Common;
@@ -11,6 +13,13 @@ namespace Angrlar.Deployit.Web.Controllers
 {
     public class DeployController : ApiHubController<BroadcastHub>
     {
+        public IEnumerable<DeployRequest> Get()
+        {
+            return DocSession.Query<DeployRequest>()
+                .OrderByDescending(d => d.CreatedAt)
+                .Take(5);
+        } 
+
         public HttpResponseMessage Post(DeployRequest request)
         {
             try

@@ -1,7 +1,18 @@
 ﻿<div ng-controller="MyController">
+    <div style="margin-bottom: 15px;">
+        <div id="divAlert" class="alert alert-danger" ng-show="errorMessage != ''">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <span id="alertText">{{errorMessage}}</span>
+        </div>
+        <div id="divInfo" class="alert alert-info hidden">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <span id="alertText">info</span>
+        </div>
+    </div>
+
     <div class="row margin-bottom-15">
         <div class="col-lg-3">
-            <select class="form-control" ng-model="selectedProject" ng-options="p.TfsProjectName for p in projects">
+            <select class="form-control" ng-model="selectedProject" ng-options="p.TfsProjectName for p in projects" ng-change="projectChange()">
                 <option value="" selected>SELECT A PROJECT</option>
             </select>
         </div>
@@ -59,6 +70,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr ng-repeat="b in builds">
+                                    <td>{{b.BuildNumber}}</td>
+                                    <td>{{b.Status}}</td>
+                                    <td>{{FinishedTiime}}</td>
+                                    <td>{{ReqeustedBy}}</td>
+                                    <td>{{Changeset}}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
