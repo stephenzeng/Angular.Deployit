@@ -18,12 +18,7 @@ namespace Angrlar.Deployit.Web.Controllers
             _tfsUri = new Uri(ConfigurationManager.AppSettings["TfsUrl"]);
         }
 
-        public IEnumerable<BuildInfoModel> Get()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<BuildInfoModel> GetLastBuildList([FromUri]string projectName, string branch, int size)
+        public IEnumerable<BuildInfoModel> GetLastBuildList(string projectName, string branch, int size)
         {
             var tfs = new TfsTeamProjectCollection(_tfsUri);
 

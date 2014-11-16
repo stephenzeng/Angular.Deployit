@@ -1,12 +1,12 @@
 ﻿<div ng-controller="MyController">
     <div style="margin-bottom: 15px;">
         <div id="divAlert" class="alert alert-danger" ng-show="errorMessage != ''">
-            <a href="#" class="close" data-dismiss="alert">&times;</a>
-            <span id="alertText">{{errorMessage}}</span>
+            <a href="#" class="close margin-left-15" ng-click="clearErrorMessage();">&times;</a>
+            <span>{{errorMessage}}</span>
         </div>
-        <div id="divInfo" class="alert alert-info hidden">
-            <a href="#" class="close" data-dismiss="alert">&times;</a>
-            <span id="alertText">info</span>
+        <div id="divInfo" class="alert alert-info" ng-show="infoMessage != ''">
+             <a href="#" class="close margin-left-15" ng-click="clearInfoMessage();">&times;</a>
+            <span>{{infoMessage}}</span>
         </div>
     </div>
 
