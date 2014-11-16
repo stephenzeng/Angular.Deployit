@@ -25,27 +25,27 @@
                     <form role="form">
                         <div class="form-group">
                             <label for="dropLocation">Latest Build Drop Location</label>
-                            <input class="form-control" id="dropLocation" value="{{selectedProject.TfsProjectName}}">
+                            <input class="form-control" id="dropLocation" value="{{deploymentRequest.DropLocation}}" required>
                         </div>
                         <div class="form-group">
                             <label for="websiteFolder">Published Website Folder</label>
-                            <input class="form-control" id="websiteFolder" value="{{selectedProject.SourceSubFolder}}">
+                            <input class="form-control" id="websiteFolder" value="{{deploymentRequest.SourceSubFolder}}" required>
                         </div>
                         <div class="form-group">
                             <label for="destRootLocation">Destination Root Location</label>
-                            <input class="form-control" id="destRootLocation" value="{{selectedProject.DestinationRootLocation}}">
+                            <input class="form-control" id="destRootLocation" value="{{deploymentRequest.DestinationRootLocation}}" required>
                         </div>
                         <div class="form-group">
                             <label for="destProjectFolder">Destination Project Folder</label>
-                            <input class="form-control" id="destProjectFolder" value="{{selectedProject.DetinationProjectFolder}}">
+                            <input class="form-control" id="destProjectFolder" value="{{deploymentRequest.DetinationProjectFolder}}" required>
                         </div>
                         <div class="form-group">
                             <label for="currentVersion">Current Version</label>
-                            <input class="form-control" id="currentVersion" value="{{selectedProject.CurrentVersion}}">
+                            <input class="form-control" id="currentVersion" value="{{deploymentRequest.CurrentVersion}}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="nextVersion">Next Version</label>
-                            <input class="form-control" id="nextVersion" value="{{selectedProject.NextVersion}}">
+                            <input class="form-control" id="nextVersion" value="{{deploymentRequest.NextVersion}}" required>
                         </div>
        
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Deploy this build</button>

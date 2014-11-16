@@ -4,13 +4,13 @@ namespace Angrlar.Deployit.Web.Models
 {
     public class DeployRequest : BaseEntity
     {
-        public string Project { get; set; }
+        public string TfsProjectName { get; set; }
 
         [DisplayName("Build drop location")]
-        public string BuildDropLocation { get; set; }
+        public string DropLocation { get; set; }
 
         [DisplayName("Website build drop folder")]
-        public string PublishedWebsiteFolder { get; set; }
+        public string SourceSubFolder { get; set; }
 
         [DisplayName("Destination location")]
         public string DestinationRootLocation { get; set; }

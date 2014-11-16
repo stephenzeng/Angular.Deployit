@@ -24,7 +24,7 @@ namespace Angrlar.Deployit.Web.Controllers
         {
             try
             {
-                if (request == null || string.IsNullOrEmpty(request.Project))
+                if (request == null || string.IsNullOrEmpty(request.TfsProjectName))
                 {
                     NotifyAndLog("Deployment request is rejected because of invalid data");
                     return new HttpResponseMessage(HttpStatusCode.NotAcceptable);
@@ -32,7 +32,7 @@ namespace Angrlar.Deployit.Web.Controllers
 
                 request.CreatedAt = DateTime.Now;
 
-                NotifyAndLog("Deployment request received for project '{0}'", request.Project);
+                NotifyAndLog("Deployment request received for project '{0}'", request.TfsProjectName);
                 ProcessDeployment(request);
 
                 request.DeploySucceeded = true;
@@ -66,7 +66,7 @@ namespace Angrlar.Deployit.Web.Controllers
             FileSystem.CopyDirectory(projectPath, backupFolder);
 
             //Copy files to project folder
-            var source = Path.Combine(model.BuildDropLocation, model.PublishedWebsiteFolder);
+            var source = Path.Combine(model.DropLocation, model.SourceSubFolder);
 
             NotifyAndLog("Deploying files from folder {0} to {1}...", source, projectPath);
             FileSystem.CopyDirectory(source, projectPath, true);
