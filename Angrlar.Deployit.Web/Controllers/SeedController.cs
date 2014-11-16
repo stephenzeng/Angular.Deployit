@@ -10,9 +10,10 @@ namespace Angrlar.Deployit.Web.Controllers
         {
             var projects = new[]
             {
-                new ProjectSetting {TfsProjectName = "DSC.SEEDA", CreatedAt = DateTime.Now},
-                new ProjectSetting {TfsProjectName = "DSC.SEEDB", CreatedAt = DateTime.Now},
-                new ProjectSetting {TfsProjectName = "DSC.SEEDC", CreatedAt = DateTime.Now},
+                new ProjectSetting {TfsProjectName = "DSC.SeedProjectA", Branch = "Main", DestinationRootLocation = @"//testapp01/apps/", DetinationProjectFolder = "SeedA_Main", SourceSubFolder = "PublsihedWebSite", CreatedAt = DateTime.Now},
+                new ProjectSetting {TfsProjectName = "DSC.SeedProjectB", Branch = "Main", DestinationRootLocation = @"//testapp01/apps/", DetinationProjectFolder = "SeedB_Main", SourceSubFolder = "PublsihedWebSite", CreatedAt = DateTime.Now},
+                new ProjectSetting {TfsProjectName = "DSC.SeedProjectC", Branch = "Main", DestinationRootLocation = @"//testapp01/apps/", DetinationProjectFolder = "SeedC_Main", SourceSubFolder = "PublsihedWebSite", CreatedAt = DateTime.Now},
+                new ProjectSetting {TfsProjectName = "DSC.SeedProjectD", Branch = "Main", DestinationRootLocation = @"//testapp01/apps/", DetinationProjectFolder = "SeedD_Main", SourceSubFolder = "PublsihedWebSite", CreatedAt = DateTime.Now},
             };
 
             projects.ForEach(DocSession.Store);

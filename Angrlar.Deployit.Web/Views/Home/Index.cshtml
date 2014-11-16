@@ -14,27 +14,27 @@
                     <form role="form">
                         <div class="form-group">
                             <label for="dropLocation">Latest Build Drop Location</label>
-                            <input class="form-control" id="dropLocation">
+                            <input class="form-control" id="dropLocation" value="{{selectedProject.TfsProjectName}}">
                         </div>
                         <div class="form-group">
                             <label for="websiteFolder">Published Website Folder</label>
-                            <input class="form-control" id="websiteFolder">
+                            <input class="form-control" id="websiteFolder" value="{{selectedProject.SourceSubFolder}}">
                         </div>
                         <div class="form-group">
                             <label for="destRootLocation">Destination Root Location</label>
-                            <input class="form-control" id="destRootLocation">
+                            <input class="form-control" id="destRootLocation" value="{{selectedProject.DestinationRootLocation}}">
                         </div>
                         <div class="form-group">
                             <label for="destProjectFolder">Destination Project Folder</label>
-                            <input class="form-control" id="destProjectFolder">
+                            <input class="form-control" id="destProjectFolder" value="{{selectedProject.DetinationProjectFolder}}">
                         </div>
                         <div class="form-group">
                             <label for="currentVersion">Current Version</label>
-                            <input class="form-control" id="currentVersion">
+                            <input class="form-control" id="currentVersion" value="{{selectedProject.CurrentVersion}}">
                         </div>
                         <div class="form-group">
                             <label for="nextVersion">Next Version</label>
-                            <input class="form-control" id="nextVersion">
+                            <input class="form-control" id="nextVersion" value="{{selectedProject.NextVersion}}">
                         </div>
        
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Deploy this build</button>
@@ -90,7 +90,7 @@
 
     </div>   
 
-    <div class="log" ng-show="selectedProject.Id > 0">
+    <div class="log" ng-show="requestSent">
         test
     </div>
  
