@@ -43,12 +43,18 @@ textarea {
     margin-top: 5px;
 }
 
+.margin-top-15 {
+    margin-top: 15px;
+}
+
+.margin-bottom-15 {
+    margin-bottom: 15px;
+}
+
 .margin-bottom-5 {
     margin-bottom: 5px;
 }
 
-div .console-panel {
-    background-color: black;
-    color: white;
-    border: 0;
+div .log {
+    padding: 10px; padding-left: 30px; background-color: black; color: white;
 }

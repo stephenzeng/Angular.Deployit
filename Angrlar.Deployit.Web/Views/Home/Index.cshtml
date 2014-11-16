@@ -1,12 +1,99 @@
 ﻿<div ng-controller="MyController">
-    <div class="row">
-        <div class="col-md-3">
+    <div class="row margin-bottom-15">
+        <div class="col-lg-3">
             <select class="form-control" ng-model="selectedProject" ng-options="p.TfsProjectName for p in projects">
                 <option value="" selected>SELECT A PROJECT</option>
             </select>
         </div>
-        <div class="col-md-7">
-            <label class="control-label">{{selectedProject.TfsProjectName}}</label>
-        </div>
     </div>
+    <div class="row" ng-show="selectedProject.Id > 0">
+        <div class="col-lg-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">Project deployment details</div>
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="dropLocation">Latest Build Drop Location</label>
+                            <input class="form-control" id="dropLocation">
+                        </div>
+                        <div class="form-group">
+                            <label for="websiteFolder">Published Website Folder</label>
+                            <input class="form-control" id="websiteFolder">
+                        </div>
+                        <div class="form-group">
+                            <label for="destRootLocation">Destination Root Location</label>
+                            <input class="form-control" id="destRootLocation">
+                        </div>
+                        <div class="form-group">
+                            <label for="destProjectFolder">Destination Project Folder</label>
+                            <input class="form-control" id="destProjectFolder">
+                        </div>
+                        <div class="form-group">
+                            <label for="currentVersion">Current Version</label>
+                            <input class="form-control" id="currentVersion">
+                        </div>
+                        <div class="form-group">
+                            <label for="nextVersion">Next Version</label>
+                            <input class="form-control" id="nextVersion">
+                        </div>
+       
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Deploy this build</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-7">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Lastest build history</div>
+                    <div class="panel-body">
+                        <table class="table table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Build Number</th>
+                                    <th>Status</th>
+                                    <th>Finish Time</th>
+                                    <th>Requested By</th>
+                                    <th>Changeset</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Lastest deployment history</div>
+                    <div class="panel-body">
+                        <table class="table table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Datetime</th>
+                                    <th>Status</th>
+                                    <th>Drop locatoin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+
+        
+
+    </div>   
+
+    <div class="log" ng-show="selectedProject.Id > 0">
+        test
+    </div>
+ 
+
 </div>
+
